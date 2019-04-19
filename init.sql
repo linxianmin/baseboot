@@ -1,4 +1,18 @@
-#数据库初始化脚本
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 50725
+ Source Host           : 127.0.0.1:3306
+ Source Schema         : bootdo
+
+ Target Server Type    : MySQL
+ Target Server Version : 50725
+ File Encoding         : 65001
+
+ Date: 19/04/2019 18:10:47
+*/
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
@@ -22,7 +36,7 @@ CREATE TABLE `oa_notify`  (
   `del_flag` char(1) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '0' COMMENT '删除标记',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `oa_notify_del_flag`(`del_flag`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 47 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '通知通告' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 48 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '通知通告' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of oa_notify
@@ -33,6 +47,7 @@ INSERT INTO `oa_notify` VALUES (43, '3', '十九大要消灭贫困人口', '我�
 INSERT INTO `oa_notify` VALUES (44, '3', '骑士又输了', '捉急', '', '1', 1, NULL, NULL, '2017-10-26 13:59:34', '', NULL);
 INSERT INTO `oa_notify` VALUES (45, '3', '火箭5连败', '没有保罗不行呀', '', '1', 1, NULL, NULL, '2017-12-30 12:10:20', '', NULL);
 INSERT INTO `oa_notify` VALUES (46, '3', 'asdasd', 'asdasdsad', NULL, '1', 1, NULL, NULL, '2019-04-17 17:32:54', '', NULL);
+INSERT INTO `oa_notify` VALUES (47, '1', 'asdas', 'asdasd', NULL, '1', 1, NULL, NULL, '2019-04-18 17:21:36', 'adsad', NULL);
 
 -- ----------------------------
 -- Table structure for oa_notify_record
@@ -48,7 +63,7 @@ CREATE TABLE `oa_notify_record`  (
   INDEX `oa_notify_record_notify_id`(`notify_id`) USING BTREE,
   INDEX `oa_notify_record_user_id`(`user_id`) USING BTREE,
   INDEX `oa_notify_record_read_flag`(`is_read`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '通知通告发送记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '通知通告发送记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of oa_notify_record
@@ -72,8 +87,20 @@ INSERT INTO `oa_notify_record` VALUES (33, 46, 131, 0, NULL);
 INSERT INTO `oa_notify_record` VALUES (34, 46, 124, 0, NULL);
 INSERT INTO `oa_notify_record` VALUES (35, 46, 123, 0, NULL);
 INSERT INTO `oa_notify_record` VALUES (36, 46, 2, 0, NULL);
-INSERT INTO `oa_notify_record` VALUES (37, 46, 1, 1, '2019-04-17');
+INSERT INTO `oa_notify_record` VALUES (37, 46, 1, 1, '2019-04-18');
 INSERT INTO `oa_notify_record` VALUES (38, 46, 11, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (39, 47, 132, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (40, 47, 136, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (41, 47, 130, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (42, 47, 134, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (43, 47, 36, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (44, 47, 135, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (45, 47, 131, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (46, 47, 124, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (47, 47, 123, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (48, 47, 2, 0, NULL);
+INSERT INTO `oa_notify_record` VALUES (49, 47, 1, 1, '2019-04-19');
+INSERT INTO `oa_notify_record` VALUES (50, 47, 11, 0, NULL);
 
 -- ----------------------------
 -- Table structure for sys_dept
@@ -254,19 +281,7 @@ CREATE TABLE `sys_file`  (
   `url` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'URL地址',
   `create_date` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 142 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '文件上传' ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of sys_file
--- ----------------------------
-INSERT INTO `sys_file` VALUES (110, 0, '/files/d64a62e3-6821-48f1-bac6-a1b9945f4afb.jpg', '2017-10-14 16:20:17');
-INSERT INTO `sys_file` VALUES (111, 0, '/files/aa2c3dc6-495f-48cc-8e12-446eceb2535e.jpg', '2017-10-14 16:20:21');
-INSERT INTO `sys_file` VALUES (118, 0, '/files/a973499e-3ec7-4d43-8a52-b6f6517c77e3.jpg', '2017-10-20 11:53:52');
-INSERT INTO `sys_file` VALUES (132, 0, '/files/e6f13526-e31c-4ebe-a3cf-5fd88dd10be6.jpg', '2017-12-18 20:19:51');
-INSERT INTO `sys_file` VALUES (134, 0, '/files/cd016e72-77f7-4425-afe2-b79dfbdc3ae9.jpeg', '2017-12-18 22:44:07');
-INSERT INTO `sys_file` VALUES (138, 0, '/files/9ec12ee7-65b5-4cc5-9900-d2ec6185b336.jpg', '2017-12-19 19:55:27');
-INSERT INTO `sys_file` VALUES (139, 0, '/files/f6aab9d4-00a1-4bc8-a695-40fc472d4ea9.jpg', '2018-01-02 19:53:24');
-INSERT INTO `sys_file` VALUES (141, 0, '/files/445c5d98-b3b6-4226-a5af-249d1b2a6a34.jpg', '2018-01-09 19:28:53');
+) ENGINE = InnoDB AUTO_INCREMENT = 143 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '文件上传' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for sys_log
@@ -283,7 +298,7 @@ CREATE TABLE `sys_log`  (
   `ip` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'IP地址',
   `gmt_create` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 730 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统日志' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 756 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统日志' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_log
@@ -409,6 +424,32 @@ INSERT INTO `sys_log` VALUES (726, 1, 'admin', '请求访问主页', 8, 'com.boo
 INSERT INTO `sys_log` VALUES (727, 1, 'admin', '请求访问主页', 12, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-17 18:14:34');
 INSERT INTO `sys_log` VALUES (728, 1, 'admin', '请求访问主页', 9, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-17 18:16:20');
 INSERT INTO `sys_log` VALUES (729, 1, 'admin', '请求访问主页', 11, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-17 18:16:46');
+INSERT INTO `sys_log` VALUES (730, -1, '获取用户信息为空', '请求访问主页', 5, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-18 15:17:58');
+INSERT INTO `sys_log` VALUES (731, -1, '获取用户信息为空', '请求访问主页', 0, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-18 16:04:50');
+INSERT INTO `sys_log` VALUES (732, -1, '获取用户信息为空', '登录', 20, 'com.bootdo.system.controller.LoginController.ajaxLogin()', NULL, '127.0.0.1', '2019-04-18 17:08:31');
+INSERT INTO `sys_log` VALUES (733, -1, '获取用户信息为空', '登录', 2, 'com.bootdo.system.controller.LoginController.ajaxLogin()', NULL, '127.0.0.1', '2019-04-18 17:19:37');
+INSERT INTO `sys_log` VALUES (734, 1, 'admin', '登录', 63, 'com.bootdo.system.controller.LoginController.ajaxLogin()', NULL, '127.0.0.1', '2019-04-18 17:19:45');
+INSERT INTO `sys_log` VALUES (735, 1, 'admin', '请求访问主页', 94, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-18 17:19:45');
+INSERT INTO `sys_log` VALUES (736, 1, 'admin', '请求访问主页', 10, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-18 17:47:31');
+INSERT INTO `sys_log` VALUES (737, -1, '获取用户信息为空', '请求访问主页', 6, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 11:43:36');
+INSERT INTO `sys_log` VALUES (738, 1, 'admin', '登录', 62, 'com.bootdo.system.controller.LoginController.ajaxLogin()', NULL, '127.0.0.1', '2019-04-19 11:43:44');
+INSERT INTO `sys_log` VALUES (739, 1, 'admin', '请求访问主页', 87, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 11:43:44');
+INSERT INTO `sys_log` VALUES (740, 1, 'admin', '登录', 55, 'com.bootdo.system.controller.LoginController.ajaxLogin()', NULL, '127.0.0.1', '2019-04-19 11:53:09');
+INSERT INTO `sys_log` VALUES (741, 1, 'admin', '请求访问主页', 78, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 11:53:09');
+INSERT INTO `sys_log` VALUES (742, -1, '获取用户信息为空', '请求访问主页', 4, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 17:52:26');
+INSERT INTO `sys_log` VALUES (743, 1, 'admin', '登录', 13, 'com.bootdo.system.controller.LoginController.ajaxLogin()', NULL, '127.0.0.1', '2019-04-19 17:52:50');
+INSERT INTO `sys_log` VALUES (744, 1, 'admin', '请求访问主页', 20, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 17:52:50');
+INSERT INTO `sys_log` VALUES (745, 1, 'admin', '编辑角色', 4, 'com.bootdo.system.controller.RoleController.edit()', NULL, '127.0.0.1', '2019-04-19 17:55:09');
+INSERT INTO `sys_log` VALUES (746, 1, 'admin', '请求访问主页', 28, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 17:58:03');
+INSERT INTO `sys_log` VALUES (747, -1, '获取用户信息为空', '请求访问主页', 1, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 18:01:41');
+INSERT INTO `sys_log` VALUES (748, 1, 'admin', '登录', 4, 'com.bootdo.system.controller.LoginController.ajaxLogin()', NULL, '127.0.0.1', '2019-04-19 18:03:29');
+INSERT INTO `sys_log` VALUES (749, 1, 'admin', '请求访问主页', 9, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 18:03:29');
+INSERT INTO `sys_log` VALUES (750, 1, 'admin', '更新用户', 7, 'com.bootdo.system.controller.UserController.updatePeronal()', NULL, '127.0.0.1', '2019-04-19 18:04:38');
+INSERT INTO `sys_log` VALUES (751, 1, 'admin', '更新用户', 7, 'com.bootdo.system.controller.UserController.updatePeronal()', NULL, '127.0.0.1', '2019-04-19 18:04:47');
+INSERT INTO `sys_log` VALUES (752, 1, 'admin', '请求访问主页', 18, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 18:08:05');
+INSERT INTO `sys_log` VALUES (753, -1, '获取用户信息为空', '请求访问主页', 1, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 18:08:22');
+INSERT INTO `sys_log` VALUES (754, 1, 'admin', '登录', 5, 'com.bootdo.system.controller.LoginController.ajaxLogin()', NULL, '127.0.0.1', '2019-04-19 18:08:29');
+INSERT INTO `sys_log` VALUES (755, 1, 'admin', '请求访问主页', 9, 'com.bootdo.system.controller.LoginController.index()', NULL, '127.0.0.1', '2019-04-19 18:08:29');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -853,7 +894,7 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 'admin', '超级管理员', '27bd386e70f280e24c2f4f2a549b82cf', 6, 'admin@example.com', '17699999999', 1, 1, '2017-08-15 21:40:39', '2017-08-15 21:41:00', 96, '2017-12-14 00:00:00', 138, 'ccc', '122;121;', '北京市', '北京市市辖区', '东城区');
+INSERT INTO `sys_user` VALUES (1, 'admin', '超级管理员', '27bd386e70f280e24c2f4f2a549b82cf', 6, 'admin@example.com', '17699999999', 1, 1, '2017-08-15 21:40:39', '2017-08-15 21:41:00', 97, '2017-12-14 00:00:00', 142, 'ccc', '', '北京市', '北京市市辖区', '东城区');
 INSERT INTO `sys_user` VALUES (2, 'test', '临时用户', '6cf3bb3deba2aadbd41ec9a22511084e', 6, 'test@bootdo.com', NULL, 1, 1, '2017-08-14 13:43:05', '2017-08-14 21:15:36', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `sys_user` VALUES (36, 'ldh', '刘德华', 'bfd9394475754fbe45866eba97738c36', 7, 'ldh@bootdo.com', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `sys_user` VALUES (123, 'zxy', '张学友', '35174ba93f5fe7267f1fb3c1bf903781', 6, 'zxy@bootdo', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
@@ -864,17 +905,6 @@ INSERT INTO `sys_user` VALUES (132, 'lyf', '刘亦菲', '7fdb1d9008f45950c1620ba
 INSERT INTO `sys_user` VALUES (134, 'lyh', '李彦宏', 'dc26092b3244d9d432863f2738180e19', 8, 'lyh@bootdo.com', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `sys_user` VALUES (135, 'wjl', '王健林', '3967697dfced162cf6a34080259b83aa', 6, 'wjl@bootod.com', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `sys_user` VALUES (136, 'gdg', '郭德纲', '3bb1bda86bc02bf6478cd91e42135d2f', 9, 'gdg@bootdo.com', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- ----------------------------
--- Table structure for sys_user_plus
--- ----------------------------
-DROP TABLE IF EXISTS `sys_user_plus`;
-CREATE TABLE `sys_user_plus`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) NOT NULL,
-  `payment` double NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -920,19 +950,5 @@ INSERT INTO `sys_user_role` VALUES (125, 132, 52);
 INSERT INTO `sys_user_role` VALUES (126, 132, 49);
 INSERT INTO `sys_user_role` VALUES (127, 123, 48);
 INSERT INTO `sys_user_role` VALUES (132, 36, 48);
-
--- ----------------------------
--- Table structure for user_info
--- ----------------------------
-DROP TABLE IF EXISTS `user_info`;
-CREATE TABLE `user_info`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '姓名',
-  `sex` int(11) NULL DEFAULT NULL COMMENT '性别',
-  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '电话号码',
-  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮箱',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户信息' ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
